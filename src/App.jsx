@@ -7,7 +7,7 @@ import Finished from './Pages/Finished'
 export default function App() {
    return (
 <BrowserRouter>
-        <><h1>EZ Game Audio Converter</h1></>
+        <><h1>EZ Batch Audio Converter</h1></>
     <Routes>
         <Route path ='/' element={<HomePage />} />
         <Route path ='HomePage' element={<HomePage />} />

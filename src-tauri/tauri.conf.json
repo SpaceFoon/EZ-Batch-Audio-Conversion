@@ -6,7 +6,7 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "EZ Game Audio Converter",
+    "productName": "EZ Batch Audio Converter",
     "version": "0.0.0"
   },
   "tauri": {
@@ -49,7 +49,7 @@
       "active": true,
       "category": "Batch Audio Tool",
       "targets": "all",
-      "identifier": "com.fugsdev.dev",
+      "identifier": "com.ezbatch.dev",
       "externalBin": [
           "src/bin/ffmpeg"
         ],
@@ -69,7 +69,7 @@
       {
         "fullscreen": false,
         "resizable": true,
-        "title": "EZ Game Audio Converter",
+        "title": "EZ Batch Audio Converter",
         "width": 600,
         "height": 1000
       }
