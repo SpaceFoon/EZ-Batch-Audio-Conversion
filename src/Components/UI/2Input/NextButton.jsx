@@ -1,11 +1,13 @@
-// ConvertButton.jsx
+// NextButton.jsx
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import createConversionList from '../../Backend/createConversionList';
-const ConvertButton = ({ settings, deduped }) => {
+import Loading from '../Loading';
+const NextButton = ({ settings, deduped }) => {
     const navigate = useNavigate();
-const [conversionList, setConversionList] = useState([]);
+    const [conversionList, setConversionList] = useState([]);
+    const [loading, setLoading] = useState(false);
     console.log("settings3", settings);
     console.log("deduped3", deduped);
 
@@ -13,8 +15,10 @@ const [conversionList, setConversionList] = useState([]);
          
 const handleClick = async () => {
   const fetchList = async () => {
+    setLoading(true);
     const list = await createConversionList(settings, deduped);
     setConversionList(list);
+    
     navigate("/Output", { state: { settings, deduped, conversionList: list } });
   };
 
@@ -24,14 +28,16 @@ const handleClick = async () => {
 
 
     return (
-        <button onClick={handleClick}>Next</button>
+         <button onClick={handleClick} disabled={loading}>
+      {loading ? <Loading /> : 'Next'}
+    </button>
         
     );
 };
 
-ConvertButton.propTypes = {
+NextButton.propTypes = {
     settings: PropTypes.object.isRequired,
     deduped: PropTypes.array.isRequired,
 };
 
-export default ConvertButton;
+export default NextButton;

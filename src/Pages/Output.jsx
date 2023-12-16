@@ -2,8 +2,8 @@
 import { Link , useLocation} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import createConversionList from '../Components/Backend/createConversionList';
-import FinalList from '../Components/UI/Output/FinalList';
-import ConvertButton from '../Components/UI/Output/ConvertButton';
+import FinalList from '../Components/UI/3Output/FinalList';
+import ConvertButton from '../Components/UI/3Output/ConvertButton';
 export default function Output () {
        const { state } = useLocation();
        const { conversionList } = state;
@@ -15,11 +15,14 @@ export default function Output () {
         {/* Final list of jobs to do */}
           <FinalList conversionList={conversionList}/>
 
-        {/* progress bar */}
         {/*go to */}
         {/* final confirm button before conversion */}
+
+        <div className="container">
         <ConvertButton conversionList={conversionList}/>
+        
         <Link to="/Finished">Go to Finished</Link>
+        </div>
     </>
     );
     }

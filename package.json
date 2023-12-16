@@ -1,5 +1,5 @@
 {
-  "name": "ez-game-audio-converter",
+  "name": "EZ-Batch-audio-converter",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -33,6 +33,7 @@
     "ffmpeg": "^0.0.4",
     "ffmpeg-static": "^5.2.0",
     "fluent-ffmpeg": "^2.1.2",
+    "ldrs": "^1.0.1",
     "node-sass": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

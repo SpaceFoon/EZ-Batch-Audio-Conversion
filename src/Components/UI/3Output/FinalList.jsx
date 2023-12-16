@@ -9,10 +9,10 @@ const FinalList = ({conversionList}) => {
 
   return (
     <>
-      <h2>Output Files:</h2>
+      <h2>Output Files:</h2><div className='container'>
       <button onClick={toggleClipPaths}>
         {clipPaths ? 'Show Full Paths' : 'Clip Paths'}
-      </button>
+      </button></div>
       <ScrollArea.Autosize type='auto' mah={'70vh'} maw={'100vw'} mx="auto" scrollbarSize={20} offsetScrollbars >
         <Table striped style={{ borderCollapse: 'collapse' }}>
           <thead>

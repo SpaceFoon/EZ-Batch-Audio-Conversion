@@ -1,7 +1,7 @@
 //Create final list of files to convert and ask user for each file
 import { join, dirname, basename, extname } from "@tauri-apps/api/path";
 import { exists } from "@tauri-apps/api/fs";
-import { ConfirmDialog } from "../UI/Input/ConfirmDialog";
+import { ConfirmDialog } from "../UI/2Input/ConfirmDialog";
 
 export default async function createConversionList(settings, files) {
   console.log("createConversionList", settings, files);

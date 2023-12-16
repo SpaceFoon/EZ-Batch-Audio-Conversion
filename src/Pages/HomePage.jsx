@@ -1,9 +1,9 @@
 //HomePage.jsx
 import { useEffect, useState } from "react";
 import { audioDir } from '@tauri-apps/api/path';
-import FilePathComponent from '../Components/UI/Home/FilePathComponent';
-import CheckBoxes from '../Components/UI/Home/CheckBoxes';
-import StartButton from "../Components/UI/Home/StartButton";
+import FilePathComponent from '../Components/UI/1Home/FilePathComponent';
+import CheckBoxes from '../Components/UI/1Home/CheckBoxes';
+import StartButton from "../Components/UI/1Home/StartButton";
 
 const HomePage = () =>{
   //Set buttons to most common audio formats.

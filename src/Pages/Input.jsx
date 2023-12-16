@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import { ScrollArea, Group} from '@mantine/core';
 import { useWindowScroll, useViewportSize } from '@mantine/hooks';
 import { useLocation  } from 'react-router-dom';
-import Settings from '../Components/UI/Input/Settings';
-import FilesToConvert from '../Components/UI/Input/FilesToConvert';
-import RemovedFiles from '../Components/UI/Input/RemovedFiles';
-import ConvertButton from '../Components/UI/Input/ConvertButton';
+import Settings from '../Components/UI/2Input/Settings';
+import FilesToConvert from '../Components/UI/2Input/FilesToConvert';
+import RemovedFiles from '../Components/UI/2Input/RemovedFiles';
+import NextButton from '../Components/UI/2Input/NextButton';
 
 const InputPage = () => {
   const { state } = useLocation();
@@ -62,7 +62,7 @@ const InputPage = () => {
 
       {/* <div className='inputPageContainer'> */}
         <div className="container">
-         <ConvertButton settings={settings} deduped={deduped} />
+         <NextButton settings={settings} deduped={deduped} />
         </div>
         {/* <div className="container"><progress value={progress} /></div> */}
         <div className="container"><Link to="/HomePage">Go to HomePage</Link></div>

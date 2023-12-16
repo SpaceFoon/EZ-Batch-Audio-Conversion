@@ -1,10 +1,10 @@
 [package]
-name = "ez-game-audio-converter"
+name = "EZ-Batch-audio-converter"
 version = "0.0.1"
 description = "Game Audio Conversion"
 authors = ["Fug"]
 license = "GNU AFFERO GENERAL PUBLIC LICENSE"
-repository = "https://github.com/SpaceFoon/Ez-Game-Audio-Conversion"
+repository = "https://github.com/SpaceFoon/EZ-Batch-Audio-Conversion"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
