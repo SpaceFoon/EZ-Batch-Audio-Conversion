@@ -1,5 +1,6 @@
 import { Table, ScrollArea } from '@mantine/core';
 import { useState } from 'react';
+
 const FinalList = ({conversionList}) => {
   const [clipPaths, setClipPaths] = useState(false);
 
@@ -23,15 +24,15 @@ const FinalList = ({conversionList}) => {
           </thead>
           <tbody>
             {conversionList.map((file, index) => (
-               <tr key={index}>
-                <td style={{ border: '2px solid #ddd', padding: '4px' }}>
-                  {clipPaths ? file.inputFile.replace(/^.*[\\/]/, '') : file.inputFile}
-                </td>
-                <td style={{ border: '2px solid #ddd', padding: '4px' }}>
-                  {clipPaths ? file.outputFile.replace(/^.*[\\/]/, '') : file.outputFile}
-                </td>
-              </tr>
-            ))}
+  <tr key={index} className={file.duplicate ? 'flash' : ''}>
+    <td style={{ border: '2px solid #ddd', padding: '4px' }}>
+      {clipPaths ? file.inputFile.replace(/^.*[\\/]/, '') : file.inputFile}
+    </td>
+    <td style={{ border: '2px solid #ddd', padding: '4px' }}>
+      {clipPaths ? file.outputFile.replace(/^.*[\\/]/, '') : file.outputFile}
+    </td>
+  </tr>
+))}
           </tbody>
         </Table>
       </ScrollArea.Autosize>

@@ -6,6 +6,7 @@ import propTypes from 'prop-types';
 const CheckBoxes = ({inputType, outputType, setInputType, setOutputType}) => {
 
  const [allInputsChecked, setAllInputsChecked] = useState(false);
+  const [allOutputChecked, setAllOutputChecked] = useState(false);
 const handleAllInputsChange = () => {
   if (allInputsChecked) {
     setInputType([]);
@@ -21,6 +22,14 @@ const handleAllInputsChange = () => {
       current.includes(value) ? current.filter((x) => x !== value) : [...current, value]
     );
   };
+const handleAllOutputChange = () => {
+  if (allOutputChecked) {
+    setOutputType([]);
+  } else {
+    setOutputType(['mp3', 'wav', 'flac', 'm4a', 'ogg', 'midi']);
+  }
+  setAllOutputChecked(!allOutputChecked);
+};
 
   const handleOutputChange = (value) => {
     console.log('output type change:', value);
@@ -28,6 +37,20 @@ const handleAllInputsChange = () => {
       current.includes(value) ? current.filter((x) => x !== value) : [...current, value]
     );
   };
+// if no input type is selected, flash input box red
+const isInputTypeEmpty = inputType.length;
+
+// if no output type is selected, flash output box red
+const isOutputTypeEmpty = outputType.length;
+
+if (isInputTypeEmpty <= 0) {
+  console.log('No input type selected');
+  
+}
+if (isOutputTypeEmpty <= 0) {
+  console.log('No output type selected');
+}
+
 
 return (  
     <>   
@@ -74,6 +97,11 @@ return (
           <legend>
             Output Formats:
           </legend>
+          <OutputFormatComponent
+            label="All"
+            value="all"
+            checked={allOutputChecked}
+            onChange={handleAllOutputChange} />
           <OutputFormatComponent
             label="OGG"
             value="ogg"

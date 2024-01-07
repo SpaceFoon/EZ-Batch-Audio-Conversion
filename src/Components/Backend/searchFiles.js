@@ -1,3 +1,5 @@
+// searchFiles.js
+// recursive search for files with given extensions
 import { readDir } from "@tauri-apps/api/fs";
 import { deleteDuplicateFiles } from "./deleteDups";
 export default async function searchFiles(searchPath, fileExtensions) {

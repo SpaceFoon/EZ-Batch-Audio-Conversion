@@ -7,12 +7,20 @@ import StartButton from "../Components/UI/1Home/StartButton";
 
 const HomePage = () =>{
   //Set buttons to most common audio formats.
+  const [filePath, setFilePath] = useState('');
   const [inputType, setInputType] = useState(['mp3', 'wav', 'flac']);
   const [outputType, setOutputType] = useState(['ogg']);
-  const [filePath, setFilePath] = useState('');
+  const [isInputTypeEmpty, setIsInputTypeEmpty] = useState(false);
+  const [isOutputTypeEmpty, setIsOutputTypeEmpty] = useState(false);
 
+ useEffect(() => {
+    setIsOutputTypeEmpty(!outputType || outputType.length === 0);
+  }, [outputType]);
+  useEffect(() => {
+    setIsInputTypeEmpty(!inputType || inputType.length === 0);
+  }, [inputType]);
 
-      // Function to set initialize file path
+  // Initialize default file path
   useEffect(() => {
     //Sets default filepath to Windows music folder.
     const setInitialFilePath = async () => {
@@ -38,6 +46,7 @@ return (
       outputType={outputType}
       setInputType={setInputType}
       setOutputType={setOutputType}
+      isInputTypeEmpty={isInputTypeEmpty}
     />
 </div>
     <div className="container">
@@ -45,6 +54,8 @@ return (
       filePath={filePath}
       inputType={inputType}
       outputType={outputType}
+      isInputTypeEmpty={isInputTypeEmpty}
+      isOutputTypeEmpty={isOutputTypeEmpty}
     />
     </div>
     </div>

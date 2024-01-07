@@ -1,5 +1,5 @@
 [package]
-name = "EZ-Batch-audio-converter"
+name = "ez_batch_audio_converter"
 version = "0.0.1"
 description = "Game Audio Conversion"
 authors = ["Fug"]

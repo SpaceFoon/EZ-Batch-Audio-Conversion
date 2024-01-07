@@ -46,3 +46,13 @@ body {
 pre {
   margin: 0;
 }
+
+@keyframes flash {
+  0% {background-color: transparent;}
+  50% {background-color: #ff0000;}
+  100% {background-color: transparent;}
+}
+
+.flash {
+  animation: flash 1s linear infinite;
+}

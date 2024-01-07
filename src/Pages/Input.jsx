@@ -1,18 +1,32 @@
 
 //InputPage.jsx
+//import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ScrollArea, Group} from '@mantine/core';
-import { useWindowScroll, useViewportSize } from '@mantine/hooks';
+import { ScrollArea } from '@mantine/core';
+//import { useWindowScroll, useViewportSize } from '@mantine/hooks';
 import { useLocation  } from 'react-router-dom';
 import Settings from '../Components/UI/2Input/Settings';
 import FilesToConvert from '../Components/UI/2Input/FilesToConvert';
 import RemovedFiles from '../Components/UI/2Input/RemovedFiles';
 import NextButton from '../Components/UI/2Input/NextButton';
+// import DuplicateDialog from '../Components/UI/2Input/DuplicateDialog';
 
 const InputPage = () => {
+  // const [isDialogOpen, setDialogOpen] = useState(false);
+  
   const { state } = useLocation();
   console.log("state", state);
+  // // Call this function when you want to open the dialog
+  // function openDialog() {
+  //   console.log('confirmed')
+  //   setDialogOpen(true);
+  // }
 
+  // // Call this function when you want to close the dialog
+  // function closeDialog() {
+  //   console.log('canceled')
+  //   setDialogOpen(false);
+  // }
   if (state) {
     var { filePath, inputType, outputType, deduped, removed } = state;
     inputType = inputType.join(', ');
@@ -42,6 +56,10 @@ const InputPage = () => {
 // Demo2()
   return (
     <>
+    {/* <DuplicateDialog
+        title="File already exists!"
+        description="Do you want to overwrite, rename or skip the file?"
+     /> */}
       {/* <Box> */}
       <ScrollArea.Autosize type='auto' mah={'80vh'} maw={'100vw'} mx="auto" scrollbarSize={20} offsetScrollbars >
       {/* <div>

@@ -1,7 +1,5 @@
 // Output.jsx
 import { Link , useLocation} from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import createConversionList from '../Components/Backend/createConversionList';
 import FinalList from '../Components/UI/3Output/FinalList';
 import ConvertButton from '../Components/UI/3Output/ConvertButton';
 export default function Output () {
@@ -9,7 +7,7 @@ export default function Output () {
        const { conversionList } = state;
 //   console.log("state2", state);
 //   console.log("settings2", settings, deduped, conversionList)
-
+console.log('conversionList in Output:', conversionList); // Add this line
     return (
     <>
         {/* Final list of jobs to do */}

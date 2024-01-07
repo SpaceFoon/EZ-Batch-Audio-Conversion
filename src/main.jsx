@@ -23,8 +23,10 @@ import "./App.scss";
 const theme = createTheme({
   // Your theme override here
 });
-
-ReactDOM.createRoot(document.getElementById("root")).render(
+//In order to take advantage of React 18's concurrent features you'll
+//need to use the new root API for client rendering.
+const root = ReactDOM.createRoot(document.getElementById("root"));
+  root.render(
   <React.StrictMode>
     <MantineProvider theme={theme}>
       <App />

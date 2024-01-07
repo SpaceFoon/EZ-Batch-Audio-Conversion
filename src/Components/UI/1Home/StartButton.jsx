@@ -5,8 +5,9 @@ import searchFiles from '../../Backend/searchFiles';
 import Loading from '../Loading';
 import { useState } from 'react';
 
-const StartButton = ({filePath, inputType, outputType}) => {
+const StartButton = ({filePath, inputType, outputType, isInputTypeEmpty, isOutputTypeEmpty}) => {
   console.log('filePath:', filePath);
+
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const startSourceSearch = async () => {
@@ -18,8 +19,9 @@ const StartButton = ({filePath, inputType, outputType}) => {
   };
 
   return (
-     <button onClick={startSourceSearch} disabled={loading}>
-      {loading ? <Loading /> : 'Start'}
+
+    <button onClick={startSourceSearch} disabled={loading || isInputTypeEmpty || isOutputTypeEmpty}>
+      {loading ? <Loading /> : (isInputTypeEmpty || isOutputTypeEmpty ? 'Select types' : 'Start')}
     </button>
   );
 };
@@ -29,6 +31,8 @@ StartButton.propTypes = {
   inputType: PropTypes.arrayOf(PropTypes.string).isRequired,
   outputType: PropTypes.arrayOf(PropTypes.string).isRequired,
   searchFiles: PropTypes.func,
+  isInputTypeEmpty: PropTypes.bool.isRequired,
+  isOutputTypeEmpty: PropTypes.bool.isRequired,
 };
 
 export default StartButton;
