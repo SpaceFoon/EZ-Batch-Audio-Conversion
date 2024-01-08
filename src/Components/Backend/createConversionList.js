@@ -1,4 +1,4 @@
-//Create final list of files to convert and ask user about files that already exist.
+//Create list of output files from input files and settings. Flag duplicates for dialog.
 import { join, dirname, basename, extname } from "@tauri-apps/api/path";
 import { exists } from "@tauri-apps/api/fs";
 
@@ -10,79 +10,21 @@ export default async function createConversionList(settings, files) {
   const conversionList = [];
 
   //Loop to make list of full output filenames from input files and settings.
-  //This happens before conversion to handle duplicate files overwrite options.
   for (const inputFile of files) {
     for (const outputFormat of outputFormats) {
-      console.log("inputFile", inputFile);
       let outputFile = `${await join(
         await dirname(inputFile),
         await basename(inputFile, await extname(inputFile))
       )}${outputFormat}`;
       let duplicate = false;
       if (await exists(outputFile)) {
+        if (inputFile === outputFile) continue;
         duplicate = true;
         //this file gets flagged for duplicate dialog
       }
       console.log("inputFile", `${inputFile}`);
       console.log("outputFile", `${outputFile}`);
-      // const outputFileCopy = `${await join(
-      //   await dirname(inputFile),
-      //   `${await basename(inputFile, await extname(inputFile))} copy (1)`
-      // )}${outputFormat}`;
 
-      // const responseActions = {
-      //   o: () => {
-      //     return (response = null);
-      //   },
-      //   oa: () => {
-      //     /* Nothing to do as default is overwrite with ffmpeg */
-      //   },
-      //   r: () => {
-      //     outputFile = outputFileCopy;
-      //     return (response = null);
-      //   },
-      //   ra: () => {
-      //     outputFile = outputFileCopy;
-      //   },
-      //   s: () => {
-      //     outputFile = "skipped!";
-      //     return (response = null);
-      //   },
-      //   sa: () => {
-      //     outputFile = "skipped!";
-      //   },
-      // };
-      // switch (response) {
-      //   // case null:
-      //   //   console.warn("response is null in creatConverstionList");
-      //   //   break;
-      //   case "":
-      //     break;
-      //   case "ra":
-      //     responseActions["ra"]();
-      //     break;
-      //   case "sa":
-      //     responseActions["sa"]();
-      //     break;
-      //   case "oa":
-      //     console.log("OVERWRITE FILE", outputFile);
-      //     break;
-      //   default:
-      //     while (true) {
-      //       console.log("outputFile", outputFile);
-      //       if (await exists(outputFile)) {
-      //         response = DuplicateDialog(outputFile);
-      //         //response = response.trim().toLowerCase();
-      //         if (responseActions[response]) {
-      //           responseActions[response]();
-      //           break;
-      //         } else {
-      //           response = null;
-      //           console.log("You did not enter a valid selection, try again.");
-      //         }
-      //       } else break;
-      //     }
-      // }
       conversionList.push({
         inputFile,
         outputFile,
@@ -90,9 +32,67 @@ export default async function createConversionList(settings, files) {
         duplicate,
       });
     }
-    console.log("createConverstionList Pending conversion:", conversionList);
   }
+  console.log("createConverstionList Pending conversion:", conversionList);
   return conversionList; //.filter((x) => x.outputFile !== "skipped!");
+  // const outputFileCopy = `${await join(
+  //   await dirname(inputFile),
+  //   `${await basename(inputFile, await extname(inputFile))} copy (1)`
+  // )}${outputFormat}`;
+
+  // const responseActions = {
+  //   o: () => {
+  //     return (response = null);
+  //   },
+  //   oa: () => {
+  //     /* Nothing to do as default is overwrite with ffmpeg */
+  //   },
+  //   r: () => {
+  //     outputFile = outputFileCopy;
+  //     return (response = null);
+  //   },
+  //   ra: () => {
+  //     outputFile = outputFileCopy;
+  //   },
+  //   s: () => {
+  //     outputFile = "skipped!";
+  //     return (response = null);
+  //   },
+  //   sa: () => {
+  //     outputFile = "skipped!";
+  //   },
+  // };
+  // switch (response) {
+  //   // case null:
+  //   //   console.warn("response is null in creatConverstionList");
+  //   //   break;
+  //   case "":
+  //     break;
+  //   case "ra":
+  //     responseActions["ra"]();
+  //     break;
+  //   case "sa":
+  //     responseActions["sa"]();
+  //     break;
+  //   case "oa":
+  //     console.log("OVERWRITE FILE", outputFile);
+  //     break;
+  //   default:
+  //     while (true) {
+  //       console.log("outputFile", outputFile);
+  //       if (await exists(outputFile)) {
+  //         response = DuplicateDialog(outputFile);
+  //         //response = response.trim().toLowerCase();
+  //         if (responseActions[response]) {
+  //           responseActions[response]();
+  //           break;
+  //         } else {
+  //           response = null;
+  //           console.log("You did not enter a valid selection, try again.");
+  //         }
+  //       } else break;
+  //     }
+  // }
 
   // while (true) {
 

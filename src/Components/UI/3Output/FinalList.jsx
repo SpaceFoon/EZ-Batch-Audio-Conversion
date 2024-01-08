@@ -1,3 +1,5 @@
+//FinalList.jsx
+import PropTypes from 'prop-types';
 import { Table, ScrollArea } from '@mantine/core';
 import { useState } from 'react';
 
@@ -41,3 +43,11 @@ const FinalList = ({conversionList}) => {
 };
 
 export default FinalList;
+
+FinalList.propTypes = {
+  conversionList: PropTypes.arrayOf(PropTypes.shape({
+    inputFile: PropTypes.string.isRequired,
+    outputFile: PropTypes.string.isRequired,
+    duplicate: PropTypes.bool
+  })).isRequired
+};

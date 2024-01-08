@@ -26,7 +26,7 @@ const handleAllOutputChange = () => {
   if (allOutputChecked) {
     setOutputType([]);
   } else {
-    setOutputType(['mp3', 'wav', 'flac', 'm4a', 'ogg', 'midi']);
+    setOutputType(['mp3', 'wav', 'flac', 'm4a', 'ogg']);
   }
   setAllOutputChecked(!allOutputChecked);
 };

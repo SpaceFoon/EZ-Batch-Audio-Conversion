@@ -5,8 +5,6 @@ import ConvertButton from '../Components/UI/3Output/ConvertButton';
 export default function Output () {
        const { state } = useLocation();
        const { conversionList } = state;
-//   console.log("state2", state);
-//   console.log("settings2", settings, deduped, conversionList)
 console.log('conversionList in Output:', conversionList); // Add this line
     return (
     <>

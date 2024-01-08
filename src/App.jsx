@@ -4,12 +4,13 @@ import HomePage from './Pages/HomePage'
 import Input from './Pages/Input'
 import Output from './Pages/Output'
 import Finished from './Pages/Finished'
+import Header from "./Components/UI/Header";
 
 export default function App() {
   
    return (
 <BrowserRouter>
-        <><h1>EZ Batch Audio Converter</h1></>
+        <><Header/></>
     <Routes>
         <Route path ='/' element={<HomePage />} />
         <Route path ='HomePage' element={<HomePage />} />

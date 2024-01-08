@@ -69,9 +69,9 @@
       {
         "fullscreen": false,
         "resizable": true,
-        "title": "ez_batch_audio_converter",
-        "width": 800,
-        "height": 1080        
+        "title": "EZ Batch Audio Converter",
+        "width": 700,
+        "height": 800        
       }
     ]
   }

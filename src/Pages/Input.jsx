@@ -61,7 +61,7 @@ const InputPage = () => {
         description="Do you want to overwrite, rename or skip the file?"
      /> */}
       {/* <Box> */}
-      <ScrollArea.Autosize type='auto' mah={'80vh'} maw={'100vw'} mx="auto" scrollbarSize={20} offsetScrollbars >
+      <ScrollArea.Autosize type='auto' mah={'80vh'} maw={'100vw'} mx="auto" scrollbarSize={30} offsetScrollbars >
       {/* <div>
         <h2>Step 2</h2>
       </div> */}
